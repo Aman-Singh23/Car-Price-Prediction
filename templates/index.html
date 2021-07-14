@@ -1,0 +1,219 @@
+  <!-- 
+NAME @: Aman Kumar Singh 
+TOPIC @: Car Price Prediction Model Deployment
+DATE @: 14/07/2021 
+-->
+
+  
+  <!-----------------------------  BASE SECTION  ----------------------------------->
+
+  
+  <!-- 
+NAME @: Aman Kumar Singh 
+TOPIC @: Car Price Prediction Model Deployment
+DATE @: 14/07/2021 
+-->
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- W3schools -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Car Price Prediction</title>
+</head>
+
+<body>
+
+    <!-- Alert Warning -->
+    <div class="alert alert-warning alert-dismissible fade show text-center mb-0" role="alert">
+        <strong>Welcome to Car Price Prediction</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning" href="/">Car Price Prediction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/analysis">Analysis</a>
+                    </li>
+                    
+
+
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel Image (Sliding Images) -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../static/image/image3.jpg" width="1600" height="600" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5> THEY COST LESS </h5>
+              <p>You already know this. Used cars are exponentially more affordable than buying a new vehicle. So if you’re looking to save a few thousand, search your preferred model for a few years back.​</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../static/image/image2.jpg" width="1600" height="600" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>LOWER INSURANCE RATES</h5>
+              <p>Another lesser known fact is that car insurance costs less per month for a used car, than a new car. So the savings of buying a used car is evident on a monthly basis in the form of the monthly premium in addition to the sticker price.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../static/image/image1.jpg" width="1600" height="600" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5> OPTIONS </h5>
+              <p>Options like roof racks, rust-proof coatings, and sun roofs do not affect the sticker price on a used car as much as the same options would cost coming on a new vehicle.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    
+    <!-- Form -->
+    <div class="container">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h6 class="display-4 fw-normal">Enter Details To Predict Car Price</h6>
+            
+            <p class="text-primary">
+              <h4><b>{{prediction_text}}</b></h4>
+            </p>
+          </div>
+
+        <div class="container">
+
+            <form action="/" method="POST">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">  KM Driven  </label>
+                  <input type="number" class="form-control" id="km_driven" name="km_driven" placeholder=" Enter KM Driven ">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">  Fuel  </label>
+                    <select class="form-select" id="fuel" name="fuel" aria-label="Default select example">
+                        <option selected>  Select Fuel Type  </option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="LPG">LPG</option>
+                        <option value="CNG">CNG</option>
+                      </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">  Seller  </label>
+                    <select class="form-select" id="seller_type" name="seller_type" aria-label="Default select example">
+                        <option selected>  Select Seller Type  </option>
+                        <option value="Individual">Individual</option>
+                        <option value="Dealer">Dealer</option>
+                        <option value="Trustmark_Dealer">Trustmark Dealer</option>
+                      </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">  Transmission  </label>
+                    <select class="form-select" id="transmission" name="transmission" aria-label="Default select example">
+                        <option selected>  Select Transmission Type  </option>
+                        <option value="Manual">Manual</option>
+                        <option value="Automatic">Automatic</option>
+                      </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">  Owner  </label>
+                    <select class="form-select" id="owner" name="owner" aria-label="Default select example">
+                        <option selected>  Select Owner Type  </option>
+                        <option value="First_Owner">First Owner</option>
+                        <option value="Second_Owner">Second Owner</option>
+                        <option value="Third_Owner">Third Owner</option>
+                        <option value="Fourth_and_Above_Owner">Fourth & Above Owner</option>
+                        <option value="Test_Drive_Car">Test Drive Car</option>
+                      </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">  Year  </label>
+                    <input type="number" class="form-control" id="year" name="year" placeholder=" Enter Year ">
+                  </div>
+
+                  <div class="text-center" >
+                    <button type="submit" class="btn btn-primary"> Predict Price </button>
+                  </div>
+              </form>
+
+        </div><br>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-pale-yellow w3-center w3-margin-top">
+    <br>
+    <h4><p>Car Price Prediction @ 2021</p></h4>
+    <p> ^_^ Connect With Me ^_^ </p>
+
+      <a href="https://github.com/Aman-Singh23/Car-Price-Prediction" target="_blank"><i class="fa fa-github w3-hover-opacity">     Github</i></a><br>
+      <a href="https://www.linkedin.com/in/aman-singh-1079b3196/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity">     LinkedIn</i></a>
+      <br><br>
+      <p>Made by Aman Singh</p>
+    </footer>
+
+  <!-----------------------------  THE END  ----------------------------------->
+
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
